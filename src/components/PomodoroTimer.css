@@ -1,0 +1,258 @@
+.pomodoro-timer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.timer-circle {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  color: var(--color, var(--primary));
+}
+
+.timer-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.timer-background {
+  opacity: 0.15;
+  stroke: currentColor;
+}
+
+.timer-progress {
+  transition: stroke-dashoffset 1s linear;
+  stroke-linecap: round;
+}
+
+.timer-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: var(--text);
+  width: 100%;
+}
+
+.timer-time {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.timer-time.clickable {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
+  user-select: none;
+}
+
+.timer-time.clickable:hover {
+  background: rgba(38, 6, 4, 0.05);
+  transform: scale(1.05);
+}
+
+.timer-label {
+  font-size: 1rem;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.timer-label.clickable {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  user-select: none;
+  display: inline-block;
+  max-width: 90%;
+  word-wrap: break-word;
+}
+
+.timer-label.clickable:hover {
+  background: rgba(38, 6, 4, 0.05);
+}
+
+.timer-edit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.timer-edit-input {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  width: 100px;
+  border: 2px solid var(--primary);
+  border-radius: 8px;
+  padding: 0.5rem;
+  background: var(--card-bg);
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.timer-edit-input:focus {
+  outline: none;
+  border-color: var(--primary-dark);
+  box-shadow: 0 0 0 3px rgba(38, 6, 4, 0.1);
+}
+
+.timer-edit-unit {
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.timer-label-edit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.timer-label-input {
+  font-size: 1rem;
+  text-align: center;
+  width: 200px;
+  border: 2px solid var(--primary);
+  border-radius: 8px;
+  padding: 0.5rem;
+  background: var(--card-bg);
+  color: var(--text);
+  font-weight: 500;
+}
+
+.timer-label-input:focus {
+  outline: none;
+  border-color: var(--primary-dark);
+  box-shadow: 0 0 0 3px rgba(38, 6, 4, 0.1);
+}
+
+.timer-edit-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.timer-edit-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timer-edit-btn.save {
+  background: var(--primary);
+  color: #f3efe0;
+}
+
+.timer-edit-btn.save:hover {
+  background: var(--primary-dark);
+  transform: scale(1.1);
+}
+
+.timer-edit-btn.cancel {
+  background: var(--text-light);
+  color: #f3efe0;
+}
+
+.timer-edit-btn.cancel:hover {
+  background: var(--text);
+  transform: scale(1.1);
+}
+
+.timer-controls {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.control-btn {
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  min-width: 140px;
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.start-btn {
+  background: var(--primary);
+  color: #f3efe0;
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.start-btn:hover {
+  background: var(--primary-dark);
+  box-shadow: 0 6px 16px var(--shadow-dark);
+}
+
+.pause-btn {
+  background: var(--text-light);
+  color: #f3efe0;
+}
+
+.pause-btn:hover {
+  background: var(--primary-light);
+  box-shadow: 0 6px 16px var(--shadow);
+}
+
+.reset-btn {
+  background: transparent;
+  color: var(--text);
+  border: 2px solid var(--text-light);
+}
+
+.reset-btn:hover {
+  background: var(--primary-light);
+  color: #f3efe0;
+  border-color: var(--primary);
+}
+
+@media (max-width: 480px) {
+  .timer-circle {
+    width: 240px;
+    height: 240px;
+  }
+
+  .timer-time {
+    font-size: 2.5rem;
+  }
+
+  .timer-label {
+    font-size: 0.9rem;
+  }
+
+  .timer-edit-input {
+    font-size: 2rem;
+    width: 80px;
+  }
+
+  .timer-label-input {
+    width: 180px;
+    font-size: 0.9rem;
+  }
+
+  .control-btn {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.9rem;
+    min-width: 120px;
+  }
+}

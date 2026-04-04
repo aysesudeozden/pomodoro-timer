@@ -1,0 +1,29 @@
+appId: com.pomodoro.timer
+productName: Pomodoro Timer
+directories:
+  buildResources: build
+  output: release
+files:
+  - dist/**/*
+  - electron/**/*
+  - package.json
+win:
+  target: 
+    - target: nsis
+      arch: [x64]
+  # icon: build/icon.ico  # Icon yoksa default kullanılacak
+  artifactName: ${productName}-Setup.${ext}
+  sign: null  # Code signing'i devre dışı bırak
+mac:
+  target: dmg
+  # icon: build/icon.icns
+  artifactName: ${productName}.${ext}
+linux:
+  target: AppImage
+  # icon: build/icon.png
+  artifactName: ${productName}.${ext}
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
