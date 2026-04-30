@@ -67,7 +67,7 @@ function DownloadButton() {
 
     // Build dosyalarının bulunduğu URL
     const downloadLinks: Record<string, string> = {
-      windows: '/release/Pomodoro Timer-Setup.exe',
+      windows: '/downloads/Pomodoro Timer-Setup.exe',
       mac: '/downloads/Pomodoro Timer.dmg',
       linux: '/downloads/Pomodoro Timer.AppImage'
     }
