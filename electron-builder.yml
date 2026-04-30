@@ -3,6 +3,7 @@ productName: Pomodoro Timer
 directories:
   buildResources: build
   output: release
+compression: maximum
 files:
   - dist/**/*
   - electron/**/*

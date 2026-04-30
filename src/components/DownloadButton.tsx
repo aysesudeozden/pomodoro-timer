@@ -161,8 +161,19 @@ function DownloadButton() {
 
   return (
     <div className="download-section">
+      {showPWAButton && (
+        <div className="pwa-recommendation">
+          <button
+            className="download-btn pwa-btn primary-action"
+            onClick={handlePWAInstall}
+          >
+            ⚡ Uygulama Olarak Yükle (0 MB - Önerilen)
+          </button>
+        </div>
+      )}
+
       <button
-        className="download-btn"
+        className={`download-btn desktop-btn ${showPWAButton ? 'secondary-action' : ''}`}
         onClick={handleDownload}
         disabled={isInstalling || platform === 'unknown'}
       >
@@ -170,22 +181,15 @@ function DownloadButton() {
           <>⏳ İndiriliyor...</>
         ) : (
           <>
-            {getPlatformIcon()} {getPlatformName()} için İndir
+            {getPlatformIcon()} {getPlatformName()} için İndir (~55 MB)
           </>
         )}
       </button>
 
-      {showPWAButton && (
-        <button
-          className="download-btn pwa-btn"
-          onClick={handlePWAInstall}
-        >
-          📱 Uygulama Olarak Yükle (PWA)
-        </button>
-      )}
-
       <p className="download-info">
-        Pop-up masaüstü uygulamasını indirin veya tarayıcınızdan "Ana ekrana ekle" ile PWA olarak yükleyin.
+        {showPWAButton 
+          ? "Saniyeler içinde, bilgisayarınızda yer kaplamadan kullanmaya başlayın."
+          : "Alternatif olarak tarayıcınızın menüsünden \"Uygulama olarak yükle\" diyerek kotanızı harcamadan indirebilirsiniz."}
       </p>
     </div>
   )
