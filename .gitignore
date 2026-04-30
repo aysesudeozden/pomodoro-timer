@@ -36,3 +36,6 @@ out/
 *.njsproj
 *.sln
 *.sw?
+
+# Build artifacts
+public/downloads/
